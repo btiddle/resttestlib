@@ -2,17 +2,17 @@ package com.btiddle;
 
 import org.json.JSONObject;
 
-class ResponseObj {
-    int statusCode;
-    JSONObject body;
+public  class ResponseObj {
+    public int statusCode;
+    public JSONObject body;
 
-    ResponseObj() {
+    public ResponseObj() {
         statusCode = 0;
         body = new JSONObject("{}");
     }
 
-    public ResponseObj(int statusCode, JSONObject jsonObject) {
-        this.statusCode = statusCode;
-        this.body = jsonObject;
+    public ResponseObj(ResponseObj r) {
+        this.statusCode = r.statusCode;
+        this.body = r.body;
     }
 }

@@ -14,10 +14,10 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
-class TestFramework {
+public class TestFramework extends ResponseObj{
 
-    static boolean DEBUG = true;
-    static String BASE_URL = "https://example.com";
+    public static boolean DEBUG = true;
+    public static String BASE_URL = "https://example.com";
 
     public static ResponseObj httpGet(String url) throws IOException {
 

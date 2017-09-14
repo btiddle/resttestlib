@@ -1,14 +1,11 @@
-package com.btiddle;
+package com.btiddle.smoke;
 
+import com.btiddle.ResponseObj;
+import com.btiddle.TestFramework;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-
-import static com.btiddle.TestFramework.getQueryString;
-import static com.btiddle.TestFramework.httpGet;
-
-public class TestSuite {
+public class TestSuiteSmoke extends TestFramework {
     boolean debug = TestFramework.DEBUG;
     String baseURL = TestFramework.BASE_URL;
 
@@ -37,7 +34,8 @@ public class TestSuite {
         });
 
         // Perform request
-        ResponseObj responseObj = httpGet(baseURL + query);
+        ResponseObj responseObj = new ResponseObj(httpGet(baseURL + query));
+        //ResponseObj responseObj = httpGet(baseURL + query);
 
         // Assert results
         Assert.assertEquals(responseObj.statusCode, 200);
@@ -54,7 +52,5 @@ public class TestSuite {
             Object trackName = responseObj.body.getJSONArray("results").getJSONObject(i).opt("trackName");
             System.out.println((i + 1) + ", " + artistName2 + ", " + trackName);
         }
-
     }
-
 }
