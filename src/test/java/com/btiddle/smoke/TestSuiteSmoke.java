@@ -20,7 +20,7 @@ public class TestSuiteSmoke extends TestFramework {
      * </pre>
      */
     @Test
-    public void testcase_itunes_search_api() throws  Exception {
+    public void testcase_get_itunes() throws  Exception {
 
         // iTunes Search API
         baseURL = "https://itunes.apple.com/search";
@@ -53,4 +53,23 @@ public class TestSuiteSmoke extends TestFramework {
             System.out.println((i + 1) + ", " + artistName2 + ", " + trackName);
         }
     }
+
+    @Test
+    public void testcase_post_technicalkeeda() throws  Exception {
+
+        // technicalkeeda API
+        baseURL = "http://www.technicalkeeda.com/post-request";
+
+        // Provide name value pairs
+        String[][] nameValuePairs = {
+            {"name",  "Yashwant"}
+        };
+
+        // Perform request
+        ResponseObj responseObj = new ResponseObj(httpPost(baseURL, nameValuePairs));
+
+        // Assert results
+        Assert.assertEquals(responseObj.statusCode, 200);
+    }
+
 }
