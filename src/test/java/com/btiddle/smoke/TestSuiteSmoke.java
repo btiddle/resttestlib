@@ -72,4 +72,36 @@ public class TestSuiteSmoke extends TestFramework {
         Assert.assertEquals(responseObj.statusCode, 200);
     }
 
+    @Test
+    public void testcase_post_basic_auth() throws  Exception {
+
+        // httpbin API
+        String username = "JohnSmith";
+        String password = "Red33Badger$$Tail";
+        String baseURL = "http://httpbin.org/basic-auth/" + username + "/"  + password;
+
+        // Perform request
+        ResponseObj responseObj = new ResponseObj(httpGetBasicAuth(baseURL, username, password));
+
+        // Assert results
+        Assert.assertEquals(responseObj.statusCode, 200);
+    }
+
+    @Test
+    public void testcase_post_basic_auth_2() throws  Exception {
+
+        // httpbin API
+        String username = "JohnSmith";
+        String password = "Red33Badger$$Tail";
+        String baseURL = "http://httpbin.org/basic-auth/" + username + "/"  + password;
+
+        // Perform request
+        ResponseObj responseObj = new ResponseObj(httpGetBasicAuth2(baseURL, username, password));
+
+        // Assert results
+        Assert.assertEquals(responseObj.statusCode, 200);
+    }
+
+
+
 }
